@@ -15,23 +15,30 @@ import { CommonModule } from '@angular/common';
   styleUrl: './admin-solic.component.css'
 })
 export class AdminSolicComponent {
+/* DESCOMENTAR ANTES DE PROBAR */
+  /*   reservation = new Reservation();
+    toastSrvc = inject(ToastrService); */
 
-    reservation = new Reservation();
-    toastSrvc = inject(ToastrService);
 
-
-   constructor(private router: Router,private serviceReservation: ReservationService){
+   constructor(private router: Router){
       
     }
+
+    /* ESTO TAMBIEN ANTES DE PROBAR CON EL BACKEND Y EL DE ARRIBA COMENTARLO */
+    /* constructor(private router: Router,private serviceReservation: ReservationService){
+      
+    } */
+
+    
   
     volver():void{
       this.router.navigate(['admin']);
     }
 
 
+    /* AL PROBAR LOS SERVICIOS DESCOMENTAR */
 
-
-    
+    /* 
     verReservationes(): void {
       this.serviceReservation.getReservation().subscribe(
         result => {
@@ -55,8 +62,6 @@ export class AdminSolicComponent {
   
     }
 
-
-    //Elimina Local de la Lista
   eliminarLocal(_id: string) {
     this.serviceReservation.deleteReservation(_id).subscribe(
       (result: any) => {
@@ -67,6 +72,8 @@ export class AdminSolicComponent {
         console.log(error);
       }
     )
-  }
+  } */
+
+
 
 }

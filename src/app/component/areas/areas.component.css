@@ -1,26 +1,26 @@
 /* calendario */
 
 .calendar-container {
-    max-width: 400px; /* Ajusta el ancho máximo del calendario */
-    margin: 0 auto; /* Centrar el calendario en la página */
-    font-size: 14px; /* Ajusta el tamaño del texto del calendario */
+    max-width: 400px; 
+    margin: 0 auto; 
+    font-size: 14px; 
   }
   
   .calendar-container .fc {
-    font-size: 12px; /* Tamaño general del calendario */
+    font-size: 12px; 
   }
   
   .calendar-container .fc-toolbar-title {
-    font-size: 16px; /* Ajusta el tamaño del título */
+    font-size: 16px; 
   }
   
   .calendar-container .fc-daygrid-day-number {
-    font-size: 12px; /* Tamaño de los números de los días */
+    font-size: 12px; 
   }
   
   .calendar-container .fc-event {
-    font-size: 10px; /* Tamaño del texto de los eventos */
-    padding: 2px; /* Reduce el espacio dentro de los eventos */
+    font-size: 10px; 
+    padding: 2px; 
   }
 
   

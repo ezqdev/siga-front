@@ -1,32 +1,28 @@
 
-
 .footer{
     position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
 }
-
-
 /* cuadro perfil */
 
 .cuadro-perfil{
    margin-top: 50px;
    width: 1100px;
-    border: 2px solid black; /* Borde de 2px de grosor y color negro */
-    border-radius: 10px; /* Borde redondeado si lo deseas */
+    border: 2px solid black; 
+    border-radius: 10px;
 }
 
 .cuadro-perfil h2{
     font-size: 23px;
  }
 
- /* segundo cuadro */
  .cuadro-foto-perfil{
     margin-top: 50px;
     width: 1100px;
     height: 250px;
-     border: 2px solid black; /* Borde de 2px de grosor y color negro */
-     border-radius: 10px; /* Borde redondeado si lo deseas */
+     border: 2px solid black; 
+     border-radius: 10px;
  }
  
