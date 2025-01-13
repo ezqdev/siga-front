@@ -1,0 +1,77 @@
+
+/* Fondo */
+.background-container {
+  background-image: url('./../../../assets/img/imgFondo.png'); 
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 100vh; /* Aseguramos que ocupe toda la altura de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caja de Login */
+.login-box {
+  width: 100%;
+  max-width: 400px; /* Limitar el tamaño máximo */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #021A47;
+}
+
+/* Formulario de login */
+.form-control {
+  border-radius: 8px;
+}
+
+/* Fondo gris para el formulario de login */
+.login-form {
+  background-color: #f0f0f0; /* Gris claro */
+}
+
+/* Botones */
+.btn {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px;
+}
+
+/* Estilo específico para los botones */
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Ajustes de responsive */
+@media (max-width: 768px) {
+  .login-box {
+    width: 90%;
+  }
+}
+
+
+
+
+
+  

@@ -1,0 +1,80 @@
+<app-header2></app-header2>
+
+<!-- Caja para el perfil de administrador -->
+<div class="cuadro-perfil container-fluid bg-white">
+  <div class="row align-items-center">
+    <!-- Título PERFIL DE ADMINISTRADOR dentro de un rectángulo -->
+    <div class="col-3">
+      <div class="bg-white rounded-1 ">
+        <h2 class="text-center mb-0" style="white-space: nowrap;">PERFIL DE ADMINISTRADOR</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fila para el botón Volver -->
+  <div class="row">
+    <div class="col-1 text-center">
+      <img src="./../../../../assets/img/atras.png" width="10px" height="10px" alt="">
+      <button (click)="irHome()" class="btn p-3 w-25">Volver</button>
+    </div>
+  </div>
+</div>
+
+<!-- Caja para las 5 secciones con borde negro, alineado con el de arriba -->
+<div class=" cuadro-perfil container-fluid bg-white my-4">
+  <div class="bg-white p-3 rounded-1">
+    <div class="row">
+      <!-- Caja 1 -->
+      <div class="col-md-4 mb-4">
+        <a (click)="irAdmin()" class="text-dark text-decoration-none">
+          <div class="bg-white p-3 rounded-1 border border-dark d-flex align-items-center">
+            <img src="./../../../assets/img-admin/admin1.png" class="me-3" width="50px" height="50px" alt="Imagen">
+            <h4 style="white-space: nowrap;">ADMIN. SOLICITUDES</h4>
+          </div>
+        </a>
+      </div>
+      <!-- Caja 2 -->
+      <div class="col-md-4 mb-4">
+        <a (click)="irAdmin2()" class="text-dark text-decoration-none">
+          <div class="bg-white p-3 rounded-1 border border-dark d-flex align-items-center">
+            <img src="./../../../assets/img-admin/admin2.png" class="me-3" width="50px" height="50px" alt="Imagen">
+            <h4>ADMIN. USUARIOS</h4>
+          </div>
+        </a>
+      </div>
+      <!-- Caja 3 -->
+      <div class="col-md-4 mb-4">
+        <a (click)="irAdmin3()" class="text-dark text-decoration-none">
+          <div class="bg-white p-3 rounded-1 border border-dark d-flex align-items-center">
+            <img src="./../../../assets/img-admin/admin3.png" class="me-3" width="50px" height="50px" alt="Imagen">
+            <h4>EQUIPOS</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Caja 4 -->
+      <div class="col-md-6 mb-4">
+        <a (click)="irAdmin4()" class="text-dark text-decoration-none">
+          <div class="bg-white p-3 rounded-1 border border-dark d-flex align-items-center">
+            <img src="./../../../assets/img-admin/admin4.png" class="me-3" width="50px" height="50px" alt="Imagen">
+            <h4>ADMIN. ESPACIOS</h4>
+          </div>
+        </a>
+      </div>
+      <!-- Caja 5 -->
+      <div class="col-md-6 mb-4">
+        <a (click)="irAdmin5()" class="text-dark text-decoration-none">
+          <div class="bg-white p-3 rounded-1 border border-dark d-flex align-items-center">
+            <img src="./../../../assets/img-admin/admin5.png" class="me-3" width="50px" height="50px" alt="Imagen">
+            <h4>ADMIN. DE SERVICIOS Y BIENES</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>

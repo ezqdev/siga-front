@@ -1,0 +1,17 @@
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+  
+  .row {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+  }
+  
+  app-footer {
+    margin-top: auto; 
+  }
+  

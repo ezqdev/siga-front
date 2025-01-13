@@ -1,0 +1,10 @@
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.footer1 {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

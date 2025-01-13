@@ -1,0 +1,274 @@
+<app-header2></app-header2>
+
+<!-- Caja del formulario de solicitud 4-->
+<div class="container mt-8">
+    <!-- Caja contorno negro con fondo blanco y título centrado -->
+    <div class="border p-4 bg-white mb-4">
+        <h3 class="text-center">FORMULARIO DE SOLICITUD</h3>
+    </div>
+
+    <!-- Caja de contenido principal -->
+    <div class="row" style="background: #DDD6D6;">
+        <!-- Primer cuadro: fecha de reserva, fecha de inicio, fecha de finalización -->
+        <div class="col-md-12 mb-4">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="fechaReserva">Fecha de Reserva</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="fechaReserva">
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="fechaInicio">Fecha de Inicio</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="fechaInicio">
+
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="fechaFin">Fecha de Finalización</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="fechaFin">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendario y horas de inicio y finalización -->
+        <div class="col-md-12 mb-4">
+            <div class="row">
+                <!-- Calendario -->
+                <div class="col-md-6"> <!-- Ajustado a col-md-6 para que no ocupe tanto espacio -->
+                    <div class="calendar-container">
+                        <full-calendar [options]="calendarOptions">
+                            <ng-template #eventContent let-arg>
+                                <b>{{arg.timeText}}</b>
+                                <i>{{arg.event.title}}</i>
+                            </ng-template>
+                        </full-calendar>
+                    </div>
+
+
+
+                    <!-- Caja de Detalles -->
+                    <div class="col-md-8">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>Detalles</h5>
+                            </div>
+                            <div class="card-body2">
+
+                                <textarea class="form-control" id="detalles" rows="6"
+                                    placeholder="Escribe aquí los detalles..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Hora de inicio y finalización (uno al lado del otro) -->
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="horaInicio">Hora de Inicio</label>
+                            <input type="time" class="form-control" id="horaInicio">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="horaFin">Hora de Finalización</label>
+                            <input type="time" class="form-control" id="horaFin">
+                        </div>
+                    </div>
+                    <!-- Tipo de evento -->
+                    <div class="colForm col-md-12 mb-4">
+                        <label for="tipoEvento">Tipo de Evento</label>
+                        <select class="controlform form-control form-control-sm" id="tipoEvento">
+                            <option>Evento 1</option>
+                            <option>Evento 2</option>
+                            <option>Evento 3</option>
+                        </select>
+                    </div>
+
+
+
+                    <div class="container mt-5">
+                        <div class="row">
+                            <!-- Caja de Servicios -->
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5>Servicios</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Lista de 9 labels con checkbox en columna -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio1">
+                                            <label class="form-check-label" for="servicio1">Sillas Acojinadas</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio2">
+                                            <label class="form-check-label" for="servicio2">Tablones</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio3">
+                                            <label class="form-check-label" for="servicio3">Manteles</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio4">
+                                            <label class="form-check-label" for="servicio4">Forros para Sillas</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio5">
+                                            <label class="form-check-label" for="servicio5">Moños</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio6">
+                                            <label class="form-check-label" for="servicio6">Templetes</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio7">
+                                            <label class="form-check-label" for="servicio7">Atril Personalizado</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio8">
+                                            <label class="form-check-label" for="servicio8">Pantalla Led</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="servicio9">
+                                            <label class="form-check-label" for="servicio9">Luz y Sonido</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Caja de Insumos -->
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5>Insumos</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Lista de 9 labels con checkbox en columna -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo1">
+                                            <label class="form-check-label" for="insumo1">Café</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo2">
+                                            <label class="form-check-label" for="insumo2">Azucar</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo3">
+                                            <label class="form-check-label" for="insumo3">Galletas</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo4">
+                                            <label class="form-check-label" for="insumo4">Cucharas</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo5">
+                                            <label class="form-check-label" for="insumo5">Te</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo6">
+                                            <label class="form-check-label" for="insumo6">Agua Embotelladas</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo7">
+                                            <label class="form-check-label" for="insumo7">Refrescos</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo8">
+                                            <label class="form-check-label" for="insumo8">Servilletas</label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Caja de Insumos -->
+                            <div class="col-md-4">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5>Equipos</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Lista de 9 labels con checkbox en columna -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo1">
+                                            <label class="form-check-label" for="insumo1">Bocinas</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo2">
+                                            <label class="form-check-label" for="insumo2">Lap Top</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo3">
+                                            <label class="form-check-label" for="insumo3">Proyector</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo5">
+                                            <label class="form-check-label" for="insumo5">Atril de Madera</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo6">
+                                            <label class="form-check-label" for="insumo6">Cafetera</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo7">
+                                            <label class="form-check-label" for="insumo7">Enfriadores</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo8">
+                                            <label class="form-check-label" for="insumo8">Hieleras Grandes</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="insumo9">
+                                            <label class="form-check-label" for="insumo9">Extensiones</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Aceptación de términos y botón Solicitar alineados a la derecha, uno debajo del otro -->
+        <div class="d-flex flex-column align-items-end mb-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="acceptTerms">
+                <label class="form-check-label" for="acceptTerms">
+                    Aceptar los términos y condiciones
+                </label>
+            </div>
+            <div class="col-md-2 mt-3">
+                <button class="btn btn-primary w-100">Solicitar Área</button>
+            </div>
+            <div class="col-md-2 mt-3">
+                <button (click)="irHome()" class="btn btn-primary w-100">Volver</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
+
+
+
+<app-footer></app-footer>

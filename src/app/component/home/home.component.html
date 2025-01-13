@@ -1,0 +1,118 @@
+<app-header2> </app-header2>
+
+
+
+<!-- Contenedor principal -->
+<div class="container my-5">
+    <!-- Fila con dos cuadros -->
+    <div class="row">
+        <!-- Cuadro 1: Mantenimiento y disponibilidad -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <!-- Cuadros de "Disponible" amarillo y verde -->
+                    <div class="row">
+
+                        
+                        <div class="col-6 mb-3">
+                            <div class="card" style="background-color: #FFD700; height: 150px;">
+                                <div class="card-body d-flex justify-content-center align-items-center text-center">
+                                    <button (click)="irDisponible()" class="boton-cuadro btn w-75">MANTENIMIENTO</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 mb-3">
+                            <div class="card" style="background-color: #32CD32; height: 150px;">
+                                <div class="card-body d-flex justify-content-center align-items-center text-center">
+                                    <button (click)="irDisponible()" class="boton-cuadro btn w-75">Disponible</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-center" style="font-size: 30px;">MAPA DE LOS ESPACIOS</p>
+
+                    <!-- Cuadro grande Ocupado centrado -->
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center mb-3">
+                            <div class="card" style="background-color: #FF6347; height: 200px; width: 75%;">
+                                <div class="card-body d-flex justify-content-center align-items-center text-center">
+                                    <button (click)="irDisponible()" class="boton-cuadro btn w-75" data-bs-toggle="modal"
+                                        data-bs-target="#imageModal">Ocupado</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Cuadro 2: Áreas disponibles -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 bg-light">
+                <div class="card-header text-center">
+                    <h5><strong>ÁREAS DISPONIBLES EN</strong></h5>
+                </div>
+                <div class="card-body">
+                    <ul *ngFor="let area of areas" class="lista-group list-unstyled">
+                        <li class="d-flex justify-content-between align-items-center mb-2" style="font-size: 1.6rem;">
+                            <span>{{area.name}}</span>
+                            <button [routerLink]="['/area', area.id]" class="btn btn-dark btn-sm" style="font-size: 1.6rem; padding: 8px 14px;">
+                                <i class="bi bi-arrow-right-circle"></i>
+                            </button>
+                        </li>
+                        <!-- <li class="d-flex justify-content-between align-items-center mb-2" style="font-size: 1.6rem;">
+                            <span>Gimnasio Auditorio</span>
+                            <button class="btn btn-dark btn-sm" style="font-size: 1.6rem; padding: 8px 14px;">
+                                <i class="bi bi-arrow-right-circle"></i>
+                            </button>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center mb-2" style="font-size: 1.6rem;">
+                            <span>Paraninfo</span>
+                            <button class="btn btn-dark btn-sm" style="font-size: 1.6rem; padding: 8px 14px;">
+                                <i class="bi bi-arrow-right-circle"></i>
+                            </button>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center mb-2" style="font-size: 1.6rem;">
+                            <span>Sala de Usos Múltiples</span>
+                            <button class="btn btn-dark btn-sm" style="font-size: 1.6rem; padding: 8px 14px;">
+                                <i class="bi bi-arrow-right-circle"></i>
+                            </button>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+<!-- Modal para mostrar imagen -->
+<!-- <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Imagen Completa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="path_to_image.jpg" class="img-fluid" alt="Imagen Completa">
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+<app-footer></app-footer>

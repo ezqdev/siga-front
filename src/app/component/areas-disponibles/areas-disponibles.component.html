@@ -1,0 +1,119 @@
+
+
+<app-header2></app-header2>
+
+
+<div class="row justify-content-center ">
+    <div class="col-12 col-sm-12 col-md-11 contenedor">
+        <h1 style="text-align: center; font-size: 37px;">Area Disponibles</h1>
+        <div class="col-md-4">
+            <button (click)="volver()" type="button" class="btn btn-primary my-3" >VOLVER </button>
+        </div>
+        <table class="table table-hover table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">NOMBRE AREA</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">FECHA</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >  <!-- *ngFor="let locales of locales" -->
+
+                    <td>GIMNASIO AUDITORIO</td>
+                    <td>DIPONIBLE</td>
+                    <td>14-01-2025</td>
+                    <td>
+                        <div class="btn-lista-promocion">
+                            <button type="button" class="btn btn-warning m-md-2">SOLICITAR</button>
+                            
+                        </div> 
+                    </td>
+                </tr>
+
+                <!-- agregado ants del ngfor -->
+                <tr >  <!-- *ngFor="let locales of locales" -->
+
+                    <td>PARANINFO</td>
+                    <td>DIPONIBLE</td>
+                    <td>25-01-2025</td>
+                    <td>
+                        <div class="btn-lista-promocion">
+                            <button type="button" class="btn btn-warning m-md-2">SOLICITAR</button>
+                            
+                        </div> 
+                    </td>
+                </tr>
+                <!-- --- -->
+                <tr >  <!-- *ngFor="let locales of locales" -->
+
+                    <td>SALA DE MULTIPLES</td>
+                    <td>DIPONIBLE</td>
+                    <td>04-02-2025</td>
+                    <td>
+                        <div class="btn-lista-promocion">
+                            <button type="button" class="btn btn-warning m-md-2">SOLICITAR</button>
+                            
+                        </div> 
+                    </td>
+                </tr>
+                <!--  -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<div class="row justify-content-center ">
+    <div class="col-12 col-sm-12 col-md-11 contenedor">
+        <h1 style="text-align: center; font-size: 37px;">AREAS NO Disponibles</h1>
+        <table class="table table-hover table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">NOMBRE AREA</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">FECHA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >  <!-- *ngFor="let locales of locales" -->
+
+                    <td>DOMO</td>
+                    <td>NO DIPONIBLE</td>
+                    <td>14-01-2025</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row justify-content-center ">
+    <div class="col-12 col-sm-12 col-md-11 contenedor">
+        <h1 style="text-align: center; font-size: 37px;">MANTENIMIENTO</h1>
+        <table class="table table-hover table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">NOMBRE AREA</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">FECHA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >  <!-- *ngFor="let locales of locales" -->
+
+                    <td>DOMO</td>
+                    <td>NO DIPONIBLE</td>
+                    <td>14-01-2025</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-footer></app-footer>

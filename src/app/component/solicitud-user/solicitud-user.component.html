@@ -1,0 +1,48 @@
+
+
+<app-header2></app-header2>
+
+
+<div class="row justify-content-center ">
+    <div class="col-12 col-sm-12 col-md-11 contenedor">
+        <h1 style="text-align: center;">MIS SOLICITUDES</h1>
+        <div class="col-md-4">
+            <button (click)="volver()" type="button" class="btn btn-primary my-3" >VOLVER </button>
+        </div>
+        <table class="table table-hover table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">AREA NOMBRE</th>
+                    <th scope="col">HORA DE INICIO</th>
+                    <th scope="col">HORA DE TERMINACION</th>
+                    <th scope="col">FECHA RESERVADA</th>
+                    <th scope="col">RECURSOS</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >  <!-- *ngFor="let locales of locales" -->
+
+                    <th>#</th>
+                    <td>USUARIO1</td>
+                    <td>10:14 AM</td>
+                    <td>14:35 P.M</td>
+                    <td>25/01/2025</td>
+                    <td>DISPONIBLE</td>
+                    <td>ACTIVO</td>
+                 
+                    <td>
+                        <div class="btn-lista-promocion">
+                            <button type="button" class="btn btn-warning m-md-2">Agregar</button>
+                            <button type="button" class="btn btn-danger -md-2">Elminar</button>
+                        </div> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-footer></app-footer>

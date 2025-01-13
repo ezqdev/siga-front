@@ -1,0 +1,62 @@
+.navbar {
+  height: 83px;
+  padding: 5px 0;
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+.nav-item {
+  position: relative;
+}
+
+
+.dropdown-menu {
+  min-width: 200px;
+  margin-left: 0;
+  margin-right: 0;
+  position: absolute;
+  left: -170px;  /* Ajustamos el valor negativo para moverlo a la izquierda */
+  right: auto;
+  z-index: 1050;
+  width: auto;
+}
+
+/* Ajustes para pantallas pequeñas (responsive) */
+@media (max-width: 991px) {
+  .navbar .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .navbar-nav {
+    margin-left: 0;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -30px;  /* Ajustamos el valor para que se vea más centrado en pantallas pequeñas */
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Ajustes para dispositivos muy pequeños */
+@media (max-width: 767px) {
+  .dropdown-menu {
+    width: 100%;
+    left: -15px;  /* Ajuste pequeño para no desbordarse en móviles */
+    margin-left: 0;
+  }
+}
+
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  
+}
+

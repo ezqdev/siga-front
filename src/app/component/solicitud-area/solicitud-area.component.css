@@ -1,0 +1,66 @@
+/* calendario */
+
+.calendar-container {
+    max-width: 400px; /* Ajusta el ancho máximo del calendario */
+    margin: 0 auto; /* Centrar el calendario en la página */
+    font-size: 14px; /* Ajusta el tamaño del texto del calendario */
+  }
+  
+  .calendar-container .fc {
+    font-size: 12px; /* Tamaño general del calendario */
+  }
+  
+  .calendar-container .fc-toolbar-title {
+    font-size: 16px; /* Ajusta el tamaño del título */
+  }
+  
+  .calendar-container .fc-daygrid-day-number {
+    font-size: 12px; /* Tamaño de los números de los días */
+  }
+  
+  .calendar-container .fc-event {
+    font-size: 10px; /* Tamaño del texto de los eventos */
+    padding: 2px; /* Reduce el espacio dentro de los eventos */
+  }
+
+
+/* control form */
+.controlform{
+  width: 100%;  /* Aseguramos que el select ocupe todo el ancho disponible */
+  max-width: 300px;  /* Máximo ancho para mantener la coherencia */
+  
+}
+
+
+/* insumos y equipo */
+/* Reducir el espacio entre las cajas */
+ /* Reducir el tamaño de las tarjetas */
+ .card {
+  max-height: 390px; /* Reducir la altura */
+  padding: 0.75rem; /* Reducir el padding */
+}
+
+.card-header h5 {
+  font-size: 1.1rem; /* Reducir el tamaño de la fuente del título */
+}
+
+.card-body {
+ 
+  margin: 0 auto; /* Centrar el contenido dentro del card-body */
+}
+
+.form-check {
+  margin-bottom: 0.25rem; /* Reducir el espaciado entre los checkboxes */
+}
+
+.form-check-label {
+  font-size: 0.9rem; /* Reducir el tamaño de la fuente de los labels */
+}
+
+/* detalles */
+.card-body2{
+  width: 300px;
+}
+
+
+/* contenedero de detalles y equipos */

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #021A47;">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img src="./../../../../assets/img/logoSistema.png" style="height: 80px; width: 280px;" alt="">
+    </a>
+
+    <a class="navbar-brand">
+      <img src="./../../../../assets/img/logo2.png" style="height: 60px; width: 170px;" alt="">
+    </a>
+
+    <ul class="nav nav-pills nav-pila">
+      <li class="nav-item dropdown">
+        <!-- Imagen del perfil en el navbar -->
+        <a class="nav-link dropdown-toggle p-0" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+          <img 
+            src="./../../../../assets/img/perfil.png" 
+            alt="User Profile" 
+            class="rounded-circle" 
+            style="height: 40px; width: 40px; object-fit: cover;">
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" (click)="irUsuario()">
+              <img 
+                src="./../../../../assets/img/icon1.png" 
+                alt="User Icon" 
+                style="height: 16px; width: 16px;">
+              NOMBRE DE USUARIO
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="irAdmin()">
+              <img 
+                src="./../../../../assets/img/icon2.png" 
+                alt="Requests Icon" 
+                style="height: 16px; width: 16px;">
+              SOLICITUDES
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <img 
+                src="./../../../../assets/img/icon3.png" 
+                alt="Profile Icon" 
+                style="height: 16px; width: 16px;">
+              PERFIL
+            </a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <img 
+                src="./../../../../assets/img/icon4.png" 
+                alt="Logout Icon" 
+                style="height: 16px; width: 16px;">
+              SALIR
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+    
+
+
+
+  </div>
+</nav>
