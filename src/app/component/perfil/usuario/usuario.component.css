@@ -10,7 +10,7 @@
 .cuadro-perfil{
    margin-top: 50px;
    width: 1100px;
-    border: 2px solid black; 
+    border: 2px solid black;
     border-radius: 10px;
 }
 
@@ -21,8 +21,8 @@
  .cuadro-foto-perfil{
     margin-top: 50px;
     width: 1100px;
-    height: 250px;
-     border: 2px solid black; 
-     border-radius: 10px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
  }
- 
+

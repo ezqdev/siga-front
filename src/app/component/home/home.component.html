@@ -51,7 +51,7 @@
                 <div class="card-body">
                     <ul *ngFor="let area of areas" class="lista-group list-unstyled">
                         <li class="d-flex justify-content-between align-items-center mb-2" style="font-size: 1.6rem;">
-                            <span>{{area.name}}</span>
+                            <span>{{area.Nombre}} <br/> Capacidad: {{area.Capacidad}}</span>
                             <button [routerLink]="['/area', area.id]" class="btn btn-dark btn-sm" style="font-size: 1.6rem; padding: 8px 14px;">
                                 <i class="bi bi-arrow-right-circle"></i>
                             </button>

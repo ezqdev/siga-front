@@ -6,7 +6,7 @@
         <div class="col-12 col-md-6 col-lg-5 mb-4 d-flex align-items-stretch">
             <div class="card bg-light p-4 w-100">
                 <div *ngIf="area" class="d-flex flex-column justify-content-between h-100">
-                   
+
                     <div class="text-center mb-4 flex-grow-1">
                         <img [src]="area.image" [alt]="area.name" class="img-fluid rounded shadow-sm"
                             style="height: 350px; width: 100%;">
@@ -19,33 +19,29 @@
         <div class="col-12 col-md-6 col-lg-7 mb-4 d-flex align-items-stretch">
             <div class="card bg-light p-4 w-100">
                 <div style="background: rgb(151, 146, 146);">
-                    <h3 class="text-center mb-4">INFORMACION DEL AREA</h3>
-                    <div class="row">
-                        <div class="col-12 col-md-6 mb-4">
-                            <div class="calendar-container">
-                                <full-calendar [options]="calendarOptions">
-                                    <ng-template #eventContent let-arg>
-                                        <b>{{arg.timeText}}</b>
-                                        <i>{{arg.event.title}}</i>
-                                    </ng-template>
-                                </full-calendar>
-                            </div>
+                    <div class="p-4 w-100">
+                        <h3 class="text-center mb-4">INFORMACION DEL AREA</h3>
+                        <h4 class="text-center">{{area.Nombre}}</h4>
+                        <p class="text-center">DESCRIPCION DEL AREA: {{area.Descripcion}}</p>
+                        <p class="text-center">AFORO: {{area.Capacidad}}</p>
+                    </div>
+
+                    <div>
+                        <div class="calendar-container">
+                            <full-calendar [options]="calendarOptions">
+                                <ng-template #eventContent let-arg>
+                                    <b>{{arg.timeText}}</b>
+                                    <i>{{arg.event.title}}</i>
+                                </ng-template>
+                            </full-calendar>
                         </div>
 
-
-                        <div class="col-12 col-md-6 mb-4">
-                            <h4 class="text-center">{{area.name}}</h4>
-                            <p class="text-center">DESCRIPCION DEL AREA
-                            </p>
-                        </div>
                     </div>
                     <!-- Botón Solicitar área -->
-                    <div class="text-center" style="margin-bottom: 15px;">
+                    <div class="text-center" style="margin-top: 15px; margin-bottom: 15px;">
                         <button (click)="irHome()" class="btn btn-danger ms-2">Volver</button>
                         <button (click)="irSolicitud()" class="btn btn-primary ms-2">Solicitar Área</button>
-                    </div>                    
-
-                    
+                    </div>
                 </div>
 
             </div>

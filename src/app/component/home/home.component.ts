@@ -4,6 +4,8 @@ import { FooterComponent } from '../shared/footer/footer.component';
 import { Header2Component } from "../shared/header2/header2.component";
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -14,33 +16,31 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class HomeComponent {
 
+  constructor(
+    private router:Router,
+    private http: HttpClient,
+  ){}
 
 
-  areas = [
-    {
-      id: 1,
-      name: 'DOMO',
-      /* image: './assets/img-planos/gimnasio.PNG' */
-    },
-    {
-      id: 2,
-      name: 'GIMNASIO AUDITORIO',
-      image: './assets/img-planos/gimnasio.PNG'
-    },
-    {
-      id: 3,
-      name: 'PARANINFO',
-      image: './assets/img-planos/paraninfo.PNG'
-    },
-    {
-      id:4,
-      name:'SALA DE USOS MULTIPLES',
-      image:'./assets/img-planos/administrativo1.PNG'
-    }
-  ];
+  ngOnInit() {
+    this.getAreas();
+  }
 
-  constructor(private router:Router){}
+  areas: any[] = []
 
+  getAreas() {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+
+    this.http.get(`${environment.apiUrl}/space`, { headers }).subscribe({
+      next: (response: any) => {
+        console.log('response', response)
+        this.areas = response.data;
+        console.log('positions', this.areas)
+      }
+    });
+  }
   irDisponible():void{
     this.router.navigate(['disponible']);
   }

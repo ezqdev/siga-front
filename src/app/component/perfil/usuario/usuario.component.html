@@ -3,40 +3,60 @@
 
 
 <div class="cuadro-perfil container-fluid bg-white ">
-    <div class="row align-items-center">
-      <div class="col-3">
-        <div class="bg-white rounded-1">
-          <h2 class="text-center mb-0">PERFIL DE USUARIO</h2>
-        </div>
+  <div class="row align-items-center">
+    <div class="col-3">
+      <div class="bg-white rounded-1">
+        <h2 class="text-center mb-0">PERFIL DE USUARIO</h2>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-1 text-center">
-        <img src="./../../../../assets/img/atras.png" width="10px" height="10px" alt="">
-        <button (click)="volverHome()" class="btn  p-3 w-25">
-            Volver</button>
-      </div>
+  <div class="row">
+    <div class="col-1 text-center">
+      <img src="./../../../../assets/img/atras.png" width="10px" height="10px" alt="">
+      <button (click)="volverHome()" class="btn  p-3 w-25">
+        Volver</button>
     </div>
+  </div>
 </div>
 
 
 <!-- Segundo cuadro para la foto de perfil -->
 <div class="cuadro-foto-perfil container-fluid bg-white my-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="bg-white p-3 rounded-1">
-                <h3 class="text-center mb-3">Foto de Perfil</h3>
-                <!-- Imagen circular de perfil -->
-                <div class="text-center">
-                    <img src="./../../../../assets/img/perfil2.png" class="rounded-circle" width="150px" height="150px" alt="Foto de perfil">
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <h3 class="mb-3">Nombre: {{user.name}}</h3>
+    <h3 class="mb-3">Email: {{user.email}}</h3>
+
+  <div class="mb-3">
+    <h3>Mis solicitudes</h3>
+    <table class="table table-hover table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">AREA NOMBRE</th>
+          <th scope="col">HORA DE INICIO</th>
+          <th scope="col">HORA DE TERMINACION</th>
+          <th scope="col">FECHA RESERVADA</th>
+          <th scope="col">ESTADO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations"> <!-- *ngFor="let locales of locales" -->
+          <th>{{reservation.id}}</th>
+          <td>{{reservation.space.name}}</td>
+          <td>{{reservation.start_time}}</td>
+          <td>{{reservation.end_time}}</td>
+          <td>{{reservation.start_date}}</td>
+          <td>{{reservation.status.toUpperCase()}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
-  
+
 
 <div class="footer">
-    <app-footer></app-footer>
+  <app-footer></app-footer>
 </div>

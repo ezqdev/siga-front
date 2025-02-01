@@ -21,7 +21,7 @@ export const routes: Routes = [
     {path: 'register', component:RegisterComponent},
     {path: 'home', component:HomeComponent},
     {path: 'area/:id', component:AreasComponent},
-    {path: 'solicitud' , component:SolicitudAreaComponent},
+    {path: 'solicitud-area/:id' , component:SolicitudAreaComponent},
     {path: 'admin' , component:AdministradorComponent},
     {path: 'disponible' , component:AreasDisponiblesComponent},
 
