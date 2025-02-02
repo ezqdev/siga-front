@@ -68,7 +68,7 @@ export class RegisterComponent {
               alert('Algo salió mal')
             } else {
               alert('Usuario creado exitosamente')
-              this.router.navigate(['/home']);
+              this.router.navigate(['/auth']);
             }
           },
           error: (error) => {
