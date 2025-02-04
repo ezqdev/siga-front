@@ -14,7 +14,8 @@
                     <div class="col-md-4 mb-3">
                         <label for="fechaReserva">Fecha de Reserva</label>
                         <div class="input-group">
-                            <input formControlName="reservation_date" type="date" class="form-control" id="fechaReserva">
+                            <input formControlName="reservation_date" type="date" class="form-control"
+                                id="fechaReserva">
 
                         </div>
                     </div>
@@ -49,7 +50,8 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="tipoEvento">Tipo de Evento</label>
-                        <select formControlName="uploaded_job" class="controlform form-control form-control-sm" id="tipoEvento">
+                        <select formControlName="uploaded_job" class="controlform form-control form-control-sm"
+                            id="tipoEvento">
                             <option>Evento 1</option>
                             <option>Evento 2</option>
                             <option>Evento 3</option>
@@ -60,8 +62,8 @@
                     <div class="container mt-5">
                         <div class="row">
                             <!-- Caja de Servicios -->
-                            <div class="col-md-4">
-                                <div class="card mb-4">
+                            <div class="col-md-3">
+                                <div class="card mb-4" style="max-height: max-content;">
                                     <div class="card-header">
                                         <h5>Servicios</h5>
                                     </div>
@@ -80,7 +82,7 @@
 
 
                             <!-- Caja de Equipos -->
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <h5>Equipos</h5>
@@ -98,15 +100,62 @@
                                 </div>
                             </div>
 
-                            <div class='col-md-4'>
+
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h5>Insumos</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Lista de 9 labels con checkbox en columna -->
+                                        <div class="form-check" *ngFor="let input of inputs">
+                                            <input class="form-check-input" type="checkbox" [value]="input.id"
+                                                [id]="'input' + input.id" (change)="onSelectInput(input.id)">
+                                            <label class="form-check-label" [for]="'input' + input.id">
+                                                {{input.name}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='col-md-3'>
+                                <div class="card-header">
+                                    <h5>Otros</h5>
+                                </div>
+                                <div class="card-body2">
+                                    <textarea formControlName="more_stuff" class="form-control" id="otros" rows="6"
+                                        placeholder="Escribe aquí las otras cosas que necesitas..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class='col-md-3'>
                                 <div class="card-header">
                                     <h5>Detalles</h5>
                                 </div>
                                 <div class="card-body2">
 
-                                    <textarea formControlName="reservation_details" class="form-control" id="detalles" rows="6"
-                                        placeholder="Escribe aquí los detalles..."></textarea>
+                                    <textarea formControlName="reservation_details" class="form-control" id="detalles"
+                                        rows="6" placeholder="Escribe aquí los detalles..."></textarea>
                                 </div>
+                            </div>
+
+                            <div *ngIf="mostrarMensaje" [style]="{
+                                'position': 'absolute',
+                                'top': '850px',
+                                'left': '40%',
+                                'background': 'white',
+                                'padding': '20px',
+                                'border': '1px solid #ccc',
+                                'border-radius': '5px',
+                                'text-align': 'center',
+                                'box-shadow': '0 0 10px rgba(0,0,0,0.1)',
+                                'z-index': '1000',
+                                'max-width': '300px'
+                              }">
+                                <h2 [style]="{'margin': '0 0 10px 0', 'color': '#333'}">MENSAJE!</h2>
+                                <p [style]="{'margin': '5px 0', 'font-size': '16px'}">SOLICITUD HECHA</p>
+                                <p [style]="{'margin': '5px 0', 'font-size': '18px', 'font-weight': 'bold'}">YES</p>
                             </div>
 
                         </div>

@@ -58,21 +58,27 @@ export class SolicitudAreaComponent {
       start_time: ['', Validators.required],
       end_time: ['', Validators.required],
       uploaded_job: ['', Validators.required],
-      reservation_details: ['', Validators.required]
+      reservation_details: ['', Validators.required],
+      more_stuff: ['']
     });
   }
 
   areasId: number | null = null;
   services: any[] = []
   estates: any[] = []
+  inputs: any[] = []
   selectedServices:any[] = []
   selectedEstates:any[] = []
+  selectedInputs:any[] = []
+  mostrarMensaje = false;
+
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.areasId = id ? Number(id) : null;
     this.getServices();
     this.getEstates();
+    this.getInputs();
   }
 
 
@@ -105,6 +111,21 @@ export class SolicitudAreaComponent {
     });
   }
 
+
+  getInputs() {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+
+    this.http.get(`${environment.apiUrl}/input`, { headers }).subscribe({
+      next: (response: any) => {
+        console.log('response inputs', response)
+        this.inputs = response.data;
+        console.log('inputs', this.inputs)
+      }
+    });
+  }
+
   onSelectService(service: any) {
     console.log('Servicio seleccionado:', service);
     this.selectedServices = [...this.selectedServices, service]
@@ -114,6 +135,12 @@ export class SolicitudAreaComponent {
     console.log('Equipo seleccionado:', estate)
     this.selectedEstates = [...this.selectedEstates, estate]
   }
+
+  onSelectInput(input: any) {
+    console.log('Insumo seleccionado:', input)
+    this.selectedInputs = [...this.selectedInputs, input]
+  }
+
 
   irHome(): void {
     this.router.navigate(['home']);
@@ -141,8 +168,11 @@ export class SolicitudAreaComponent {
               alert('Algo salió mal')
             } else {
               console.log('response', response)
-              this.toastSrvc.success("Reservacion creada con éxito.");
               this.assignItems(response.data.id)
+              this.mostrarMensaje = true;
+              setTimeout(() => {
+                this.mostrarMensaje = false;
+              }, 3000)
             }
           },
           error: (error) => {
@@ -160,7 +190,8 @@ export class SolicitudAreaComponent {
     this.http.post(`${environment.apiUrl}/reservation/assignItems/${reservationId}`,
       {
         estates: this.selectedEstates,
-        services: this.selectedServices
+        services: this.selectedServices,
+        inputs: this.selectedInputs
       },
       { headers }
     )
@@ -171,7 +202,10 @@ export class SolicitudAreaComponent {
             alert('Algo salió mal')
           } else {
             console.log('response', response)
-            this.toastSrvc.success("Items asignados con éxito.");
+            this.mostrarMensaje = true;
+            setTimeout(() => {
+              this.mostrarMensaje = false;
+            }, 3000)
           }
         },
         error: (error) => {
