@@ -8,37 +8,35 @@
         <h1 style="text-align: center;">EQUIPOS</h1>
         <div class="col-md-4">
             <button (click)="volver()" type="button" class="btn btn-primary my-3" >VOLVER </button>
+            <button (click)="handleShowForm(null)" type="button" class="btn btn-warning m-md-2">Agregar</button>
         </div>
+        <form style="margin-bottom: 12px;" *ngIf="showForm === true" [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
+            <input formControlName="id" class="form-control" hidden style="margin-bottom: 12px;">
+            <input placeholder="Nombre" formControlName="name" class="form-control" style="margin-bottom: 12px;">
+            <button *ngIf="updateMode !== true" type="submit" class="btn btn-primary w-100">
+                Crear equipo
+            </button>
+            <button *ngIf="updateMode === true" type="submit" class="btn btn-primary w-100">
+                Actualizar equipo
+            </button>
+        </form>
         <table class="table table-hover table table-striped table-dark">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">AREA NOMBRE</th>
-                    <th scope="col">HORA DE INICIO</th>
-                    <th scope="col">HORA DE TERMINACION</th>
-                    <th scope="col">FECHA RESERVADA</th>
-                    <th scope="col">RECURSOS</th>
-                    <th scope="col">ESTADO</th>
+                    <th scope="col">NOMBRE</th>
                     <th scope="col">ACCIONES</th>
                 </tr>
             </thead>
             <tbody>
-                <tr >  <!-- *ngFor="let locales of locales" -->
-
-                    <th>#</th>
-                    <td>USUARIO1</td>
-                    <td>10:14 AM</td>
-                    <td>14:35 P.M</td>
-                    <td>25/01/2025</td>
-                    <td>DISPONIBLE</td>
-                    <td>ACTIVO</td>
-                 
+                <tr *ngFor="let equipo of equipos">
+                    <th>{{equipo.id}}</th>
+                    <td>{{equipo.Nombre}}</td>
                     <td>
                         <div class="btn-lista-promocion">
-                            <button type="button" class="btn btn-warning m-md-2">Agregar</button>
-                            <button type="button" class="btn btn-success m-md-2">Actualizar</button>
-                            <button type="button" class="btn btn-danger -md-2">Elminar</button>
-                        </div> 
+                            <button (click)="handleShowForm(equipo)" type="button" class="btn btn-success m-md-2">Actualizar</button>
+                            <button (click)="deleteEquipo(equipo.id)" type="button" class="btn btn-danger -md-2">Elminar</button>
+                        </div>
                     </td>
                 </tr>
             </tbody>
