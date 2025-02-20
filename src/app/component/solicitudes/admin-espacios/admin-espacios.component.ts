@@ -20,6 +20,11 @@ export class AdminEspaciosComponent {
   espacioForm: FormGroup;
   showForm: any;
   updateMode: any;
+  selectedFile: File | null = null;
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
 
   constructor(
     private router: Router,
@@ -31,7 +36,6 @@ export class AdminEspaciosComponent {
       description: ['', Validators.required],
       capacity: ['', Validators.required],
       id: [''],
-      image: ['', Validators.required]
     });
   }
 
@@ -41,12 +45,12 @@ export class AdminEspaciosComponent {
 
   handleShowForm(espacio: any) {
     this.showForm = true;
-    if(espacio!==null){
+    if (espacio !== null) {
       this.updateMode = true
-      this.espacioForm.setValue({ name: espacio.Nombre, id: espacio.id, capacity: espacio.Capacidad, description: espacio.Descripcion, image: espacio.image })
-    }else{
+      this.espacioForm.setValue({ name: espacio.Nombre, id: espacio.id, capacity: espacio.Capacidad, description: espacio.Descripcion })
+    } else {
       this.updateMode = false
-      this.espacioForm.setValue({ name: '', id: '', capacity: '', description: '', image: '' })
+      this.espacioForm.setValue({ name: '', id: '', capacity: '', description: '' })
     }
   }
 
@@ -58,7 +62,13 @@ export class AdminEspaciosComponent {
     this.http.get(`${environment.apiUrl}/space`, { headers }).subscribe({
       next: (response: any) => {
         console.log('response', response)
-        this.espacios = response.data.reverse();
+        const fullSpaces = response.data.map((space: any) => {
+          return {
+            ...space,
+            image: 'http://localhost:8000' + space.image
+          }
+        })
+        this.espacios = fullSpaces.reverse();
       }
     });
   }
@@ -83,58 +93,54 @@ export class AdminEspaciosComponent {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
-    console.log('equipo form', this.espacioForm)
+
     if (this.espacioForm.valid) {
-      if(!this.updateMode){
-        this.http.post(`${environment.apiUrl}/space`,
-          {
-            ...this.espacioForm.value,
-          },
-          { headers }
-        )
+      const formData = new FormData();
+      formData.append('name', this.espacioForm.get('name')?.value);
+      formData.append('capacity', this.espacioForm.get('capacity')?.value);
+      formData.append('description', this.espacioForm.get('description')?.value);
+
+      if (this.selectedFile) {
+        formData.append('image', this.selectedFile);
+      }
+
+      if (!this.updateMode) {
+        this.http.post(`${environment.apiUrl}/space`, formData, { headers })
           .subscribe({
             next: (response: any) => {
-              console.log('response', response)
-              if (response.statusCode !== 201) {
-                alert('Algo salió mal: ' + response.message)
+              if (response.statusCode !== 200) {
+                alert('Algo salió mal: ' + response.message);
               } else {
-                console.log('response', response)
-                alert('Espacio creado exitosamente')
-                this.getSpaces()
+                alert('Espacio creado exitosamente');
+                this.getSpaces();
               }
             },
             error: (error) => {
-              console.error('Error en login:', error);
+              console.error('Error:', error);
             }
           });
-      }else{
-        this.http.put(`${environment.apiUrl}/space/${this.espacioForm.value.id}`,
-          {
-            ...this.espacioForm.value,
-          },
-          { headers }
-        )
+      } else {
+        formData.append('id', this.espacioForm.get('id')?.value);
+        this.http.put(`${environment.apiUrl}/space/${this.espacioForm.value.id}`, formData, { headers })
           .subscribe({
             next: (response: any) => {
-              console.log('response', response)
               if (response.statusCode !== 200) {
-                alert('Algo salió mal: ' + response.message)
+                alert('Algo salió mal: ' + response.message);
               } else {
-                console.log('response', response)
-                alert('Espacio actualizado exitosamente')
-                this.getSpaces()
+                alert('Espacio actualizado exitosamente');
+                this.getSpaces();
               }
             },
             error: (error) => {
-              console.error('Error en login:', error);
+              console.error('Error:', error);
             }
           });
       }
     }
   }
 
-    volver():void{
-      this.router.navigate(['admin']);
-    }
+  volver(): void {
+    this.router.navigate(['admin']);
+  }
 
 }

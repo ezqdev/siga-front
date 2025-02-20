@@ -18,8 +18,8 @@
             <input  placeholder="Aforo" formControlName="capacity" class="form-control" style="margin-bottom: 12px;">
             <label>Descripción</label>
             <input  placeholder="Descripción" formControlName="description" class="form-control" style="margin-bottom: 12px;">
-            <label>Link de imagen</label>
-            <input  placeholder="Link de imagen" formControlName="image" class="form-control" style="margin-bottom: 12px;">
+            <label>Imagen</label>
+            <input type="file" (change)="onFileSelected($event)" class="form-control" style="margin-bottom: 12px;">
             <button *ngIf="updateMode !== true" type="submit" class="btn btn-primary w-100">
                 Crear espacio
             </button>

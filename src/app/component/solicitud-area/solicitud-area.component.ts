@@ -57,8 +57,8 @@ export class SolicitudAreaComponent {
       end_date: ['', Validators.required],
       start_time: ['', Validators.required],
       end_time: ['', Validators.required],
-      uploaded_job: ['', Validators.required],
-      reservation_details: ['', Validators.required],
+      uploaded_job: [''],
+      reservation_details: [''],
       more_stuff: ['']
     });
   }
@@ -71,7 +71,15 @@ export class SolicitudAreaComponent {
   selectedEstates:any[] = []
   selectedInputs:any[] = []
   mostrarMensaje = false;
+  eventTypes:any[] = [];
+  anotherEventType = false;
+  newEventType = '';
 
+  selectedFile: File | null = null;
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -79,6 +87,7 @@ export class SolicitudAreaComponent {
     this.getServices();
     this.getEstates();
     this.getInputs();
+    this.getEventTypes();
   }
 
 
@@ -126,6 +135,20 @@ export class SolicitudAreaComponent {
     });
   }
 
+  getEventTypes() {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+
+    this.http.get(`${environment.apiUrl}/event-types`, { headers }).subscribe({
+      next: (response: any) => {
+        console.log('response inputs', response)
+        this.eventTypes = [ ...response.data,  { name: 'Otro' }];
+      }
+    });
+  }
+
+
   onSelectService(service: any) {
     console.log('Servicio seleccionado:', service);
     this.selectedServices = [...this.selectedServices, service]
@@ -141,6 +164,20 @@ export class SolicitudAreaComponent {
     this.selectedInputs = [...this.selectedInputs, input]
   }
 
+  onSelectEventType(e: any) {
+    console.log('etn', e.target.value)
+    if(e.target.value.toUpperCase()=== "OTRO"){
+      console.log('entro aca')
+      this.anotherEventType = true;
+    }else{
+      this.anotherEventType = false;
+    }
+  }
+
+
+  onSetAnotherEventType(e:any){
+    this.newEventType = e.target.value;
+  }
 
   irHome(): void {
     this.router.navigate(['home']);
@@ -152,13 +189,49 @@ export class SolicitudAreaComponent {
     });
     console.log('solicitud area form', this.solicitudAreaForm)
     if (this.solicitudAreaForm.valid) {
+
+      if(this.anotherEventType){
+        this.http.post(`${environment.apiUrl}/event-types`,
+          {
+            name: this.newEventType,
+          },
+          { headers }
+        )
+          .subscribe({
+            next: (response: any) => {
+              console.log('response', response)
+              if (response.statusCode !== 201) {
+                alert('Algo salió mal')
+              } else {
+                this.eventTypes = [...this.eventTypes, { name: this.newEventType }]
+              }
+            },
+            error: (error) => {
+              console.error('Error:', error);
+            }
+          });
+      }
+
+
+      const formData = new FormData();
+      formData.append('reservation_date', this.solicitudAreaForm.get('reservation_date')?.value)
+      formData.append('start_date', this.solicitudAreaForm.get('start_date')?.value)
+      formData.append('end_date', this.solicitudAreaForm.get('end_date')?.value)
+      formData.append('start_time', this.solicitudAreaForm.get('start_time')?.value)
+      formData.append('end_time', this.solicitudAreaForm.get('end_time')?.value)
+      formData.append('uploaded_job', this.anotherEventType ? this.newEventType : this.solicitudAreaForm.get('uploaded_job')?.value )
+      formData.append('reservation_details', this.solicitudAreaForm.get('reservation_details')?.value )
+      formData.append('more_stuff', this.solicitudAreaForm.get('more_stuff')?.value)
+      formData.append('user_id',JSON.parse(localStorage.getItem('user') || '').id)
+      formData.append('space_id', this.areasId as any)
+      formData.append('status', 'pendiente')
+
+      if (this.selectedFile) {
+        formData.append('file', this.selectedFile);
+      }
+
       this.http.post(`${environment.apiUrl}/reservation`,
-        {
-          ...this.solicitudAreaForm.value,
-          user_id: JSON.parse(localStorage.getItem('user') || '').id,
-          space_id: this.areasId,
-          status: 'pendiente'
-        },
+        formData,
         { headers }
       )
         .subscribe({
